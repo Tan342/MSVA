@@ -535,7 +535,7 @@ def train(params_obj):
                     os.system('rm -rf ' + params_obj.output_dir + '/models_temp/' + log_dir)
 #                    print("Split: {0:}   Best F-score: {1:0.5f}   Model: {2:}".format(split_filename, fscore, log_file))
                     print("Split: ",split_filename,"  Best F-score: ",fscore," Model: ", log_file)
-                    pickle.dump( np.array(train_val_loss_score), open(params_obj.output_dir + '/'+model_anchor+"_"+split_filename.split("/")[-1][:-5]+"_"+str(split_id)+"_train_val_loss_score.p", "wb" ) )
+                    pickle.dump( train_val_loss_score, open(params_obj.output_dir + '/'+model_anchor+"_"+split_filename.split("/")[-1][:-5]+"_"+str(split_id)+"_train_val_loss_score.p", "wb" ) )
                     pickle.dump( mx_test_preds, open(params_obj.output_dir + '/'+model_anchor+"_"+split_filename.split("/")[-1][:-5]+"_"+str(split_id)+"_test_preds.p", "wb" ) )
                 # Write average F-score for all splits to the results.txt file
                 f_avg /= n_folds
